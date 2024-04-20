@@ -25,7 +25,6 @@ import java.util.TreeMap;
 import java.util.stream.Collector;
 
 public class CalculateAverage_baseline {
-
     private static final String FILE = "./measurements.txt";
 
     private static record Measurement(String station, double value) {
@@ -53,6 +52,8 @@ public class CalculateAverage_baseline {
     }
 
     public static void main(String[] args) throws IOException {
+        long start = System.currentTimeMillis();
+
         // Map<String, Double> measurements1 = Files.lines(Paths.get(FILE))
         // .map(l -> l.split(";"))
         // .collect(groupingBy(m -> m[0], averagingDouble(m -> Double.parseDouble(m[1]))));
@@ -88,5 +89,6 @@ public class CalculateAverage_baseline {
                 .collect(groupingBy(m -> m.station(), collector)));
 
         System.out.println(measurements);
+        System.out.printf("Task finished in %s ms%n", System.currentTimeMillis() - start);
     }
 }
