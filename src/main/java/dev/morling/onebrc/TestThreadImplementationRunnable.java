@@ -2,10 +2,10 @@ package dev.morling.onebrc;
 
 import java.io.IOException;
 
-public class TestThreadImplementationDump implements Runnable {
+public class TestThreadImplementationRunnable implements Runnable {
     public static void main(String[] args) throws IOException {
-        Thread thread1 = new Thread(new TestThreadImplementationDump());
-        Thread thread2 = new Thread(new TestThreadImplementationDump());
+        Thread thread1 = new Thread(new TestThreadImplementationRunnable());
+        Thread thread2 = new Thread(new TestThreadImplementationRunnable());
 
         thread1.start();
         thread2.start();
